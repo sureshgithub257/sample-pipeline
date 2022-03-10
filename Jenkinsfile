@@ -10,7 +10,7 @@ pipeline {
       steps {
         timeout(time: 3, unit: 'MINUTES') {
           retry(5) {
-            powershell './flakey-deploy.ps1'
+            sh "sh ./test.sh"
           }
        }
      }
