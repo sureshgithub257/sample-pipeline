@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('Notice') {
       steps {
         sh 'echo Running first stage'
       }
