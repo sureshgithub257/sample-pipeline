@@ -3,9 +3,17 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'npm -version'
+        sh 'echo Running first stage'
       }
-    }
-
+    stage('Build') {
+ steps {
+ timeout(time: 3, units: 'MINUTES') {
+ retry(5) {
+ powershell './flakey-deploy.ps1'
+ }
+ }
+ }
+ }
+ 
   }
 }
